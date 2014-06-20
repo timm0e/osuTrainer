@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -13,6 +12,7 @@ namespace osuTrainer.ViewModels
         private double _minPp;
         private ObservableCollection<ScoreInfo> _scores = new ObservableCollection<ScoreInfo>();
         private int _scoresAdded;
+        private int _startingRank;
         private string _updateContent;
         private List<int> _userScores = new List<int>();
         private string _userid;
@@ -77,6 +77,16 @@ namespace osuTrainer.ViewModels
             }
         }
 
+        public int StartingRank
+        {
+            get { return _startingRank; }
+            set
+            {
+                _startingRank = value;
+                RaisePropertyChanged("StartingRank");
+            }
+        }
+
         public bool IsExclusiveCbChecked { get; set; }
         public bool IsDoubletimeCbChecked { get; set; }
         public bool IsHardrockCbChecked { get; set; }
@@ -112,7 +122,6 @@ namespace osuTrainer.ViewModels
             get { return _userScores; }
             protected set { _userScores = value; }
         }
-
 
 
         public async void GetScoresAsync()
@@ -175,21 +184,23 @@ namespace osuTrainer.ViewModels
             return mods;
         }
 
-        protected double GetAccuracy(int count50, int count100, int count300, int countmiss, int countkatu, int countgeki)
+        protected double GetAccuracy(int count50, int count100, int count300, int countmiss, int countkatu,
+            int countgeki)
         {
             // https://osu.ppy.sh/wiki/Accuracy
             switch (SelectedGameMode)
             {
                 case 0:
-                    return (float)(count50 * 50 + count100 * 100 + count300 * 300) / (countmiss + count50 + count100 + count300) / 3;
+                    return (float) (count50*50 + count100*100 + count300*300)/
+                           (countmiss + count50 + count100 + count300)/3;
                 case 1:
-                    return (float)(count100 * .5 + count300) / (countmiss + count100 + count300) * 100;
+                    return (float) (count100*.5 + count300)/(countmiss + count100 + count300)*100;
                 case 2:
-                    return (float)(count300 + count100 + count50) /
-                           (count300 + count100 + count50 + countkatu + countmiss) * 100;
+                    return (float) (count300 + count100 + count50)/
+                           (count300 + count100 + count50 + countkatu + countmiss)*100;
                 case 3:
-                    return (float)(count50 * 50 + count100 * 100 + countkatu * 200 + count300 * 300 + countgeki * 300) /
-                           (countmiss + count50 + count100 + countkatu + count300 + countgeki) / 3;
+                    return (float) (count50*50 + count100*100 + countkatu*200 + count300*300 + countgeki*300)/
+                           (countmiss + count50 + count100 + countkatu + count300 + countgeki)/3;
                 default:
                     return 0.0;
             }

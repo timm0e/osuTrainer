@@ -7,8 +7,7 @@
              xmlns:viewModels="clr-namespace:osuTrainer.ViewModels"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
-
-             d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"  Loaded="Scores_Loaded" Initialized="Scores_Initialized">
+Loaded="Scores_Loaded" Initialized="Scores_Initialized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="220"/>
@@ -78,8 +77,8 @@
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="85"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="60"/>
                     </Grid.ColumnDefinitions>
                     <CheckBox Grid.Row="0" Grid.Column="0" Name ="DoubletimeCb" Content="Doubletime" IsChecked="{Binding Path=IsDoubletimeCbChecked}"/>
                     <CheckBox Grid.Row="1" Grid.Column="0" Name ="HardrockCb" Content="Hardrock" IsChecked="{Binding Path=IsHardrockCbChecked}"/>
@@ -89,8 +88,11 @@
                     <CheckBox Grid.Row="1" Grid.Column="2" Name ="ExclusiveCb" Content="Exclusive" IsChecked="{Binding Path=IsExclusiveCbChecked}"/>
                     <TextBlock Grid.Row="0" Grid.Column="3" Text="Score source:" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                     <ComboBox Grid.Row="1" Grid.Column="3" Name="ScoreSourceCb" Width="80" HorizontalAlignment="Left"/>
-                    <TextBlock Grid.Row="0" Grid.Column="4" Text="Scores added:" VerticalAlignment="Bottom"/>
-                    <TextBlock Grid.Row="1" Grid.Column="4"  Text="{Binding ScoresAdded, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="0" Grid.Column="4" Text="Starting Rank:" VerticalAlignment="Bottom"/>
+                    <controls:NumericUpDown HideUpDownButtons="True" Grid.Row="1" Grid.Column="4" Width="75" Minimum="0" Value="{Binding StartingRank, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="5" Text="Scores:" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="1" Grid.Column="5"  Text="{Binding ScoresAdded, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+
                 </Grid>
                 <Grid Grid.Column="1" Margin="5,0,0,0">
                     <Grid.ColumnDefinitions>

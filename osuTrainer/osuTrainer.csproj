@@ -97,7 +97,6 @@
       <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Updater.cs" />
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ScoresViewModel.cs" />
     <Compile Include="ViewModels\OsuApiViewModel.cs" />
     <Compile Include="ViewModels\OsuStatsViewModel.cs" />

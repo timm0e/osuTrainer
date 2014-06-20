@@ -137,14 +137,18 @@ namespace osuTrainer.ViewModels
             GlobalVars.Mods mods = SelectedModsToEnum();
             int[] userids;
             int startid;
+            if (StartingRank < 1)
+            {
+                StartingRank = curUserPpRank;
+            }
             switch (SelectedGameMode)
             {
                 case 0:
                     userids = standardIds;
                     startid = curUserPp < 200
                         ? 12843
-                        : curUserPpRank < 5001
-                            ? curUserPpRank - 2
+                        : StartingRank < 5001
+                            ? StartingRank - 2
                             : FindStartingUser(curUserPp, userids);
                     break;
 
@@ -152,8 +156,8 @@ namespace osuTrainer.ViewModels
                     userids = taikoIds;
                     startid = curUserPp < 200
                         ? 6806
-                        : curUserPpRank < 5001
-                            ? curUserPpRank - 2
+                        : StartingRank < 5001
+                            ? StartingRank - 2
                             : FindStartingUser(curUserPp, userids);
                     break;
 
@@ -161,8 +165,8 @@ namespace osuTrainer.ViewModels
                     userids = ctbIds;
                     startid = curUserPp < 200
                         ? 7638
-                        : curUserPpRank < 5001
-                            ? curUserPpRank - 2
+                        : StartingRank < 5001
+                            ? StartingRank - 2
                             : FindStartingUser(curUserPp, userids);
                     break;
 
@@ -170,8 +174,8 @@ namespace osuTrainer.ViewModels
                     userids = maniaIds;
                     startid = curUserPp < 200
                         ? 7569
-                        : curUserPpRank < 5001
-                            ? curUserPpRank - 2
+                        : StartingRank < 5001
+                            ? StartingRank - 2
                             : FindStartingUser(curUserPp, userids);
                     break;
                 default:

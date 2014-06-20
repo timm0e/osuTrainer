@@ -49,7 +49,6 @@ namespace osuTrainer.ViewModels
         public SearchViewModel()
         {
             SearchCommand = new SearchCommand(this);
-            CallSearchCommand = new CallSearchCommand(this);
         }
         public async void GetScoresAsync()
         {
