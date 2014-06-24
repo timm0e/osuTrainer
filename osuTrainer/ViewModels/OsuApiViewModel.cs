@@ -75,7 +75,7 @@ namespace osuTrainer.ViewModels
         private bool GetUserBest()
         {
             UserScores = new List<int>();
-            
+
             string json =
                 _client.DownloadString(GlobalVars.UserApi + ApiKey + "&u=" + Userid + GlobalVars.Mode +
                                        SelectedGameMode);
@@ -130,13 +130,14 @@ namespace osuTrainer.ViewModels
             {
                 IsWorking = false;
                 UpdateContent = "Update";
-                MessageBox.Show("Wrong API key or username. If your username is made up of numbers only, use your userid instead.");
+                MessageBox.Show(
+                    "Wrong API key or username. If your username is made up of numbers only, use your userid instead.");
                 return scores;
             }
             string json = "";
             GlobalVars.Mods mods = SelectedModsToEnum();
             int[] userids;
-            int startid;
+            int startid = 0;
             if (StartingRank < 1)
             {
                 StartingRank = curUserPpRank;
@@ -146,37 +147,37 @@ namespace osuTrainer.ViewModels
                 case 0:
                     userids = standardIds;
                     startid = curUserPp < 200
-                        ? 12843
+                        ? userids.Length - 1
                         : StartingRank < 5001
                             ? StartingRank - 2
-                            : FindStartingUser(curUserPp, userids);
+                            : FindUserByRank(StartingRank, userids);
                     break;
 
                 case 1:
                     userids = taikoIds;
                     startid = curUserPp < 200
-                        ? 6806
+                        ? userids.Length - 1
                         : StartingRank < 5001
                             ? StartingRank - 2
-                            : FindStartingUser(curUserPp, userids);
+                            : FindUserByRank(StartingRank, userids);
                     break;
 
                 case 2:
                     userids = ctbIds;
                     startid = curUserPp < 200
-                        ? 7638
+                        ? userids.Length - 1
                         : StartingRank < 5001
                             ? StartingRank - 2
-                            : FindStartingUser(curUserPp, userids);
+                            : FindUserByRank(StartingRank, userids);
                     break;
 
                 case 3:
                     userids = maniaIds;
                     startid = curUserPp < 200
-                        ? 7569
+                        ? userids.Length - 1
                         : StartingRank < 5001
                             ? StartingRank - 2
-                            : FindStartingUser(curUserPp, userids);
+                            : FindUserByRank(StartingRank, userids);
                     break;
                 default:
                     IsWorking = false;
@@ -188,7 +189,12 @@ namespace osuTrainer.ViewModels
             var maxDuration = new TimeSpan(0, 0, 10);
             while (sw.Elapsed < maxDuration)
             {
-                if (startid < 0) return scores;
+                if (startid < 0)
+                {
+                    IsWorking = false;
+                    UpdateContent = "Update";
+                    return scores;
+                }
                 json =
                     _client.DownloadString(GlobalVars.UserBestApi + ApiKey + "&u=" + userids[startid] + GlobalVars.Mode +
                                            SelectedGameMode);
@@ -247,7 +253,7 @@ namespace osuTrainer.ViewModels
             return scores;
         }
 
-        private int FindStartingUser(double targetpp, int[] ids)
+        private int FindUserByRank(double targetrank, int[] ids)
         {
             int low = 0;
             int high = ids.Length - 1;
@@ -256,14 +262,10 @@ namespace osuTrainer.ViewModels
             while (low < high && iterations < 7)
             {
                 midpoint = low + (high - low)/2;
-                double midUserPp = GetUserPp(ids[midpoint]);
-                if (targetpp > midUserPp)
+                double midUserRank = GetUserRank(ids[midpoint]);
+                if (targetrank < midUserRank)
                 {
                     high = midpoint - 1;
-                }
-                else if (midUserPp - targetpp < 100)
-                {
-                    return midpoint;
                 }
                 else
                 {
@@ -274,12 +276,12 @@ namespace osuTrainer.ViewModels
             return midpoint;
         }
 
-        private double GetUserPp(int userId)
+        private int GetUserRank(int userId)
         {
             string json =
                 _client.DownloadString(GlobalVars.UserApi + ApiKey + "&u=" + userId + GlobalVars.Mode + SelectedGameMode);
-            Match match = Regex.Match(json, @"pp_raw"":""(.+?)""");
-            return Convert.ToDouble(match.Groups[1].Value, CultureInfo.InvariantCulture);
+            Match match = Regex.Match(json, @"pp_rank"":""(.+?)""");
+            return Convert.ToInt32(match.Groups[1].Value, CultureInfo.InvariantCulture);
         }
     }
 
