@@ -37,6 +37,7 @@ Loaded="Scores_Loaded" Initialized="Scores_Initialized">
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Text="Artist:" VerticalAlignment="Center"/>
                     <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Text="{Binding SelectedItem.BeatmapArtist, ElementName=dataGrid}" VerticalAlignment="Center" Margin="5,0,0,0"/>

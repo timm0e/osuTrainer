@@ -68,11 +68,11 @@ namespace osuTrainer.Views
                         break;
                 }
             }
+            PasswordBox.Password = Settings.Default.ApiKey;
         }
 
         private void Scores_Initialized(object sender, EventArgs e)
         {
-            PasswordBox.Password = Settings.Default.ApiKey;
             GameModeCb.ItemsSource = Enum.GetValues(typeof (GlobalVars.GameMode)).Cast<int>();
             ScoreSourceCb.Items.Add("osu! API");
             ScoreSourceCb.Items.Add("osustats API");
