@@ -430,5 +430,17 @@ namespace osuTrainer.Properties {
                 this["IsModeVisible"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsComboVisible {
+            get {
+                return ((bool)(this["IsComboVisible"]));
+            }
+            set {
+                this["IsComboVisible"] = value;
+            }
+        }
     }
 }

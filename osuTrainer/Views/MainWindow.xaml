@@ -66,68 +66,72 @@
                             <controls:ToggleSwitch Grid.Row="0" Grid.Column="3"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsAccVisible}" 
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="0" Grid.Column="4" Text="Ranked" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="0" Grid.Column="5" 
+                            <TextBlock Grid.Row="0" Grid.Column="4" Text="Combo" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="0" Grid.Column="5"
+                                                   IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsComboVisible}" 
+                                                   Margin="10,0"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Ranked" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="1" Grid.Column="1" 
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsAdVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Artist" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="1" Grid.Column="1" 
+                            <TextBlock Grid.Row="1" Grid.Column="2" Text="Artist" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="1" Grid.Column="3" 
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsArtistVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="1" Grid.Column="2" Text="Title" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="1" Grid.Column="3"
+                            <TextBlock Grid.Row="1" Grid.Column="4" Text="Title" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="1" Grid.Column="5"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsTitleVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="1" Grid.Column="4" Text="Version" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="1" Grid.Column="5" 
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Version" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="2" Grid.Column="1" 
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsVersionVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Creator" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="2" Grid.Column="1"
+                            <TextBlock Grid.Row="2" Grid.Column="2" Text="Creator" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="2" Grid.Column="3"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsCreatorVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="2" Grid.Column="2" Text="Mode" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="2" Grid.Column="3"
+                            <TextBlock Grid.Row="2" Grid.Column="4" Text="Mode" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="2" Grid.Column="5"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsModeVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="2" Grid.Column="4" Text="Mods" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="2" Grid.Column="5"
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Mods" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="3" Grid.Column="1"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsModsVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Length" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="3" Grid.Column="1"
+                            <TextBlock Grid.Row="3" Grid.Column="2" Text="Length" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="3" Grid.Column="3"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsLengthVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="3" Grid.Column="2" Text="Drain" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="3" Grid.Column="3"
+                            <TextBlock Grid.Row="3" Grid.Column="4" Text="Drain" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="3" Grid.Column="5"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsDrainVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="3" Grid.Column="4" Text="BPM" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="3" Grid.Column="5"
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="BPM" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="4" Grid.Column="1"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsBpmVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Diff." VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="4" Grid.Column="1"
+                            <TextBlock Grid.Row="4" Grid.Column="2" Text="Diff." VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="4" Grid.Column="3"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsDiffVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="4" Grid.Column="2" Text="CS" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="4" Grid.Column="3"
+                            <TextBlock Grid.Row="4" Grid.Column="4" Text="CS" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="4" Grid.Column="5"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsCsVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="4" Grid.Column="4" Text="OD" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="4" Grid.Column="5"
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="OD" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="5" Grid.Column="1"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsOdVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="5" Grid.Column="0" Text="AR" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="5" Grid.Column="1"
+                            <TextBlock Grid.Row="5" Grid.Column="2" Text="AR" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="5" Grid.Column="3"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsArVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="5" Grid.Column="2" Text="DR" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="5" Grid.Column="3"
+                            <TextBlock Grid.Row="5" Grid.Column="4" Text="DR" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="5" Grid.Column="5"
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsDrVisible}"
                                                    Margin="10,0"/>
-                            <TextBlock Grid.Row="5" Grid.Column="4" Text="PP" VerticalAlignment="Center"/>
-                            <controls:ToggleSwitch Grid.Row="5" Grid.Column="5" 
+                            <TextBlock Grid.Row="6" Grid.Column="0" Text="PP" VerticalAlignment="Center"/>
+                            <controls:ToggleSwitch Grid.Row="6" Grid.Column="1" 
                                                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=IsPpVisible}"
                                                    Margin="10,0"/>
                         </Grid>

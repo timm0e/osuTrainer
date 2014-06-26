@@ -5,6 +5,7 @@ namespace osuTrainer.ViewModels
     public class ScoreInfo
     {
         public double Accuracy { get; set; }
+        public int Combo { get; set; }
         public string RankImage { get; set; }
 
         public string Version { get; set; }

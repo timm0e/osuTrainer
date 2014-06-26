@@ -141,6 +141,14 @@ Loaded="Scores_Loaded" Initialized="Scores_Initialized">
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Combo" Width="70" SortMemberPath="Combo"
+                                        Visibility="{Binding Source={x:Static properties:Settings.Default}, Path=IsComboVisible, UpdateSourceTrigger=PropertyChanged,Converter={StaticResource BoolToVisibilityConverter}}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Combo}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Ranked" Width="70" SortMemberPath="ApprovedDate"
                                         Visibility="{Binding Source={x:Static properties:Settings.Default}, Path=IsAdVisible, UpdateSourceTrigger=PropertyChanged,Converter={StaticResource BoolToVisibilityConverter}}">
                     <DataGridTemplateColumn.CellTemplate>

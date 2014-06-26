@@ -224,6 +224,7 @@ namespace osuTrainer.ViewModels
                         Accuracy = Math.Round(
                             GetAccuracy(userBestList[j].Count50, userBestList[j].Count100, userBestList[j].Count300,
                                 userBestList[j].CountMiss, userBestList[j].CountKatu, userBestList[j].CountGeki), 2),
+                        Combo = userBestList[j].MaxCombo,
                         BeatmapTitle = beatmap.First().Title,
                         Version = beatmap.First().Version,
                         BeatmapCreator = beatmap.First().Creator,
