@@ -36,7 +36,7 @@ Loaded="Scores_Loaded" Initialized="Scores_Initialized">
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Text="Artist:" VerticalAlignment="Center"/>
