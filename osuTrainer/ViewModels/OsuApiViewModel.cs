@@ -99,24 +99,22 @@ namespace osuTrainer.ViewModels
                 UserScores.Add(item.Beatmap_Id);
             }
 
-            json = "";
             try
             {
                 json =
                     _client.DownloadString(@"http://osustats.ezoweb.de/API/osuTrainer.php?mode=" + SelectedGameMode +
                                            @"&uid=" + Userid);
+                var osuStatsBest = JsonSerializer.DeserializeFromString<List<OsuStatsBest>>(json);
+                if (osuStatsBest != null)
+                {
+                    foreach (OsuStatsBest item in osuStatsBest)
+                    {
+                        UserScores.Add(item.Beatmap_Id);
+                    }
+                }
             }
             catch (Exception)
-            {
-            }
-
-            var osuStatsBest = JsonSerializer.DeserializeFromString<List<OsuStatsBest>>(json);
-            if (osuStatsBest != null)
-            {
-                foreach (OsuStatsBest item in osuStatsBest)
-                {
-                    UserScores.Add(item.Beatmap_Id);
-                }
+            {               
             }
             return true;
         }
