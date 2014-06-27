@@ -55,10 +55,17 @@ namespace osuTrainer.ViewModels
             json =
                 _client.DownloadString(GlobalVars.UserBestApi + ApiKey + "&u=" + Userid + GlobalVars.Mode +
                                        SelectedGameMode);
-            var userBest = JsonSerializer.DeserializeFromString<List<UserBest>>(json);
-            foreach (UserBest item in userBest)
+            try
             {
-                UserScores.Add(item.Beatmap_Id);
+                var userBest = JsonSerializer.DeserializeFromString<List<UserBest>>(json);
+                foreach (UserBest item in userBest)
+                {
+                    UserScores.Add(item.Beatmap_Id);
+                }
+            }
+            catch (Exception)
+            {
+
             }
 
             try
@@ -66,15 +73,15 @@ namespace osuTrainer.ViewModels
                 json =
     _client.DownloadString(@"http://osustats.ezoweb.de/API/osuTrainer.php?mode=" + SelectedGameMode +
                            @"&uid=" + Userid);
+                var osuStatsBest = JsonSerializer.DeserializeFromString<List<OsuStatsBest>>(json);
+                foreach (OsuStatsBest item in osuStatsBest)
+                {
+                    UserScores.Add(item.Beatmap_Id);
+                }
             }
             catch (Exception)
             {
                 return false;
-            }
-            var osuStatsBest = JsonSerializer.DeserializeFromString<List<OsuStatsBest>>(json);
-            foreach (OsuStatsBest item in osuStatsBest)
-            {
-                UserScores.Add(item.Beatmap_Id);
             }
             return true;
         }
@@ -88,7 +95,7 @@ namespace osuTrainer.ViewModels
             {
                 IsWorking = false;
                 UpdateContent = "Update";
-                MessageBox.Show("Wrong API key, username or osustats is down.");
+                MessageBox.Show("Wrong API key, username or the osustats api is down.");
                 return scores;
             }
             string statsjson = "";
