@@ -65,7 +65,6 @@ namespace osuTrainer.ViewModels
             }
             catch (Exception)
             {
-
             }
 
             try
@@ -95,7 +94,7 @@ namespace osuTrainer.ViewModels
             {
                 IsWorking = false;
                 UpdateContent = "Update";
-                MessageBox.Show("Wrong API key, username or the osustats api is down.");
+                MessageBox.Show("Wrong API key, username or the osustats API is down.");
                 return scores;
             }
             string statsjson = "";
@@ -112,12 +111,14 @@ namespace osuTrainer.ViewModels
             {
                 IsWorking = false;
                 UpdateContent = "Update";
+                MessageBox.Show("Failed to access the osustats API. Is osustats down?");
                 return scores;
             }
             if (statsjson.Length < 3)
             {
                 IsWorking = false;
                 UpdateContent = "Update";
+                MessageBox.Show("No scores found. Is osustats down?");
                 return scores;
             }
             var osuStatsScores = JsonSerializer.DeserializeFromString<List<OsuStatsScores>>(statsjson);
@@ -138,6 +139,7 @@ namespace osuTrainer.ViewModels
                 scores.Add(new ScoreInfo
                 {
                     Accuracy = osuStatsScores[i].Accuracy,
+                    Combo = osuStatsScores[i].MaxCombo,
                     Mods = osuStatsScores[i].Enabled_Mods,
                     BeatmapTitle = osuStatsScores[i].Beatmap_Title,
                     Version = osuStatsScores[i].Beatmap_Version,
@@ -169,6 +171,7 @@ namespace osuTrainer.ViewModels
 
         public int Uid { get; set; }
         public double Accuracy { get; set; }
+        public int MaxCombo { get; set; }
 
         public GlobalVars.Mods Enabled_Mods { get; set; }
 
