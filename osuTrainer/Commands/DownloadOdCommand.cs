@@ -21,7 +21,14 @@ namespace osuTrainer.Commands
 
         public void Execute(object parameter)
         {
-            Process.Start(GlobalVars.OsuDirectURL + _viewModelBase.SelectedScoreInfo.BeatmapSetId);
+            try
+            {
+                Process.Start(GlobalVars.OsuDirectURL + _viewModelBase.SelectedScoreInfo.BeatmapSetId);
+            }
+            catch (Exception)
+            {
+                // ignore any exceptions if osu! not set to open link
+            }
         }
 
         public event EventHandler CanExecuteChanged

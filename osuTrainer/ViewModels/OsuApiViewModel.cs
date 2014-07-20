@@ -92,7 +92,7 @@ namespace osuTrainer.ViewModels
 
             json =
                 _client.DownloadString(GlobalVars.UserBestApi + ApiKey + "&u=" + Userid + GlobalVars.Mode +
-                                       SelectedGameMode);
+                                       SelectedGameMode + @"&limit=50");
             var userBest = JsonSerializer.DeserializeFromString<List<UserBest>>(json);
             foreach (UserBest item in userBest)
             {
@@ -114,7 +114,7 @@ namespace osuTrainer.ViewModels
                 }
             }
             catch (Exception)
-            {               
+            {
             }
             return true;
         }
@@ -195,13 +195,13 @@ namespace osuTrainer.ViewModels
                 }
                 json =
                     _client.DownloadString(GlobalVars.UserBestApi + ApiKey + "&u=" + userids[startid] + GlobalVars.Mode +
-                                           SelectedGameMode);
+                                           SelectedGameMode + @"&limit=50");
                 startid -= 1;
                 var userBestList = JsonSerializer.DeserializeFromString<List<UserBest>>(json);
                 for (int j = 0; j < userBestList.Count; j++)
                 {
                     if (userBestList[j].PP < MinPp) break;
-                    if (IsFcOnlyCbChecked) if ((int) userBestList[j].Rank > 3) continue;
+                    if (IsFcOnlyCbChecked) if ((int)userBestList[j].Rank > 3) continue;
                     userBestList[j].Enabled_Mods &=
                         ~(GlobalVars.Mods.NV | GlobalVars.Mods.Perfect | GlobalVars.Mods.SD | GlobalVars.Mods.SpunOut);
                     if ((!IsExclusiveCbChecked || userBestList[j].Enabled_Mods != mods) &&
@@ -228,9 +228,9 @@ namespace osuTrainer.ViewModels
                         BeatmapCreator = beatmap.First().Creator,
                         BeatmapArtist = beatmap.First().Artist,
                         Mods = userBestList[j].Enabled_Mods,
-                        Bpm = (int) Math.Truncate(beatmap.First().Bpm*dtmodifier),
+                        Bpm = (int)Math.Truncate(beatmap.First().Bpm * dtmodifier),
                         Difficultyrating = Math.Round(beatmap.First().Difficultyrating, 2),
-                        Pp = (int) Math.Truncate(userBestList[j].PP),
+                        Pp = (int)Math.Truncate(userBestList[j].PP),
                         RankImage = GetRankImageUri(userBestList[j].Rank),
                         BeatmapId = beatmap.First().Beatmap_Id,
                         BeatmapSetId = beatmap.First().BeatmapSet_Id,
@@ -260,7 +260,7 @@ namespace osuTrainer.ViewModels
             int iterations = 0;
             while (low < high && iterations < 7)
             {
-                midpoint = low + (high - low)/2;
+                midpoint = low + (high - low) / 2;
                 double midUserRank = GetUserRank(ids[midpoint]);
                 if (targetrank < midUserRank)
                 {

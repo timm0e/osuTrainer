@@ -54,7 +54,7 @@ namespace osuTrainer.ViewModels
 
             json =
                 _client.DownloadString(GlobalVars.UserBestApi + ApiKey + "&u=" + Userid + GlobalVars.Mode +
-                                       SelectedGameMode);
+                                       SelectedGameMode + @"&limit=50");
             try
             {
                 var userBest = JsonSerializer.DeserializeFromString<List<UserBest>>(json);
