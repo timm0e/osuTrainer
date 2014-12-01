@@ -55,21 +55,21 @@ namespace osuTrainer.ViewModels
         {
             var formatter = new BinaryFormatter();
             standardIds =
-                (int[])
+                ((int[])
                     formatter.Deserialize(
-                        Application.GetResourceStream(new Uri("Resources/standard", UriKind.Relative)).Stream);
+                        Application.GetResourceStream(new Uri("Resources/standard", UriKind.Relative)).Stream)).Where(x => x != 0).ToArray<int>();
             taikoIds =
-                (int[])
+                ((int[])
                     formatter.Deserialize(
-                        Application.GetResourceStream(new Uri("Resources/taiko", UriKind.Relative)).Stream);
+                        Application.GetResourceStream(new Uri("Resources/taiko", UriKind.Relative)).Stream)).Where(x => x != 0).ToArray<int>();
             ctbIds =
-                (int[])
+                ((int[])
                     formatter.Deserialize(
-                        Application.GetResourceStream(new Uri("Resources/ctb", UriKind.Relative)).Stream);
+                        Application.GetResourceStream(new Uri("Resources/ctb", UriKind.Relative)).Stream)).Where(x => x != 0).ToArray<int>();
             maniaIds =
-                (int[])
+                ((int[])
                     formatter.Deserialize(
-                        Application.GetResourceStream(new Uri("Resources/mania", UriKind.Relative)).Stream);
+                        Application.GetResourceStream(new Uri("Resources/mania", UriKind.Relative)).Stream)).Where(x => x != 0).ToArray<int>();
         }
 
         private bool GetUserBest()
