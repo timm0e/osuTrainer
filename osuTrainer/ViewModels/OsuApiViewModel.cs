@@ -280,6 +280,10 @@ namespace osuTrainer.ViewModels
             string json =
                 _client.DownloadString(GlobalVars.UserApi + ApiKey + "&u=" + userId + GlobalVars.Mode + SelectedGameMode);
             Match match = Regex.Match(json, @"pp_rank"":""(.+?)""");
+            if (!match.Success)
+            {
+                return 0;
+            }
             return Convert.ToInt32(match.Groups[1].Value, CultureInfo.InvariantCulture);
         }
     }
