@@ -55,9 +55,9 @@ Loaded="Scores_Loaded" Initialized="Scores_Initialized">
                 <Image Grid.Column="1" Source="{Binding SelectedItem.ThumbUrl, ElementName=dataGrid}"/>
                 <StackPanel Grid.Column="2" Margin="5,5,0,0">
                     <TextBlock Text="Userid\-name:" Width="100" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                    <TextBox Name="UseridTb" Width="100" controls:TextboxHelper.Watermark="Userid\-name" Text="{Binding Path=Userid, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Name="UseridTb" Width="100" controls:TextBoxHelper.Watermark="Userid\-name" Text="{Binding Path=Userid, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock Text="API Key:" Width="70" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                    <PasswordBox Name="PasswordBox"  Width="100" controls:TextboxHelper.Watermark="API key"/>
+                    <PasswordBox Name="PasswordBox"  Width="100" controls:TextBoxHelper.Watermark="API key"/>
                     <TextBlock>
                             <Hyperlink NavigateUri="https://osu.ppy.sh/p/api" RequestNavigate="ApiLink_RequestNavigate">Link to API key</Hyperlink>
                     </TextBlock>

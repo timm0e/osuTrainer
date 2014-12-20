@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0">Enter a Beatmap Id to list its top 50 scores and their PP amount.</TextBlock>
             <TextBlock Grid.Column="1"></TextBlock>
-            <TextBox Grid.Column="2" Width="100" controls:TextboxHelper.Watermark="Beatmap Id" Text="{Binding Path=BeatmapId, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Grid.Column="2" Width="100" controls:TextBoxHelper.Watermark="Beatmap Id" Text="{Binding Path=BeatmapId, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <ComboBox Grid.Column="3" Name="GameModeCb" Width="100" SelectedIndex="{Binding Path=SelectedGameMode}"/>
             <Button Grid.Column="4" Content="Search" Command="{Binding SearchCommand}" IsEnabled="{Binding IsWorking, Converter={StaticResource InvertBoolConverter}, UpdateSourceTrigger=PropertyChanged}"></Button>
         </Grid>

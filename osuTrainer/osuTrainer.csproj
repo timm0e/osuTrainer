@@ -37,15 +37,17 @@
     <ApplicationIcon>Resources\osutrainer.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MahApps.Metro, Version=0.14.0.86, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="MahApps.Metro, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MahApps.Metro.0.14.0-ALPHA86\lib\net45\MahApps.Metro.dll</HintPath>
+      <HintPath>..\packages\MahApps.Metro.1.0.1-ALPHA007\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
-    <Reference Include="Octokit">
-      <HintPath>..\packages\Octokit.0.3.4\lib\net45\Octokit.dll</HintPath>
+    <Reference Include="Octokit, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Octokit.0.6.0\lib\net45\Octokit.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Text">
-      <HintPath>..\packages\ServiceStack.Text.4.0.21\lib\net40\ServiceStack.Text.dll</HintPath>
+    <Reference Include="ServiceStack.Text, Version=4.0.34.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Text.4.0.34\lib\net40\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -54,7 +56,7 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.0.14.0-ALPHA86\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\MahApps.Metro.1.0.1-ALPHA007\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -183,7 +185,6 @@
     <Resource Include="Resources\mania" />
     <Resource Include="Resources\standard" />
     <Resource Include="Resources\taiko" />
-    <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -202,16 +203,17 @@
     <Resource Include="Resources\X_small.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\rivals.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo.ttf" />
+    <None Include="Resources\mappers.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\rivals.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mappers.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
