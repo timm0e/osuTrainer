@@ -39,9 +39,15 @@ namespace osuTrainer.Views
         {
             foreach (int rival in _rivals)
             {
-                string json =
-                    _client.DownloadString(GlobalVars.UserApi + Settings.Default.ApiKey + "&u=" +
-                                           rival + "&event_days=" + 31);
+                string json = "";
+                try
+                {
+                    json =_client.DownloadString(GlobalVars.UserApi + Settings.Default.ApiKey + "&u=" +
+                           rival + "&event_days=" + 31);
+                }
+                catch (Exception)
+                {
+                }
                 if (json.Length < 33) continue;
                 var test = JsonSerializer.DeserializeFromString<List<User>>(json);
                 foreach (Event item in test.First().Events)

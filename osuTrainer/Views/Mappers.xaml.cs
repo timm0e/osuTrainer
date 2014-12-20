@@ -69,9 +69,15 @@ namespace osuTrainer.Views
         {
             foreach (int mapper in _mappers)
             {
-                string json =
-                    _client.DownloadString(GlobalVars.BeatmapApi + Settings.Default.ApiKey + "&u=" +
-                                           mapper);
+                string json = "";
+                try
+                {
+                    json = _client.DownloadString(GlobalVars.BeatmapApi + Settings.Default.ApiKey + "&u=" +
+                           mapper);
+                }
+                catch (Exception)
+                {    
+                }
                 if (json.Length < 33) continue;
                 var test = JsonSerializer.DeserializeFromString<SortedSet<BeatmapInfo>>(json);
                 foreach (var item in test)

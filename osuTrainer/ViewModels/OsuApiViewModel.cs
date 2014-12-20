@@ -75,10 +75,15 @@ namespace osuTrainer.ViewModels
         private bool GetUserBest()
         {
             UserScores = new List<int>();
-
-            string json =
-                _client.DownloadString(GlobalVars.UserApi + ApiKey + "&u=" + Userid + GlobalVars.Mode +
-                                       SelectedGameMode);
+            string json = "";
+            try
+            {
+                json = _client.DownloadString(GlobalVars.UserApi + ApiKey + "&u=" + Userid + GlobalVars.Mode +
+                           SelectedGameMode);
+            }
+            catch (Exception)
+            {
+            }
             if (json.Length < 33)
             {
                 return false;

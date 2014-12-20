@@ -43,9 +43,17 @@ namespace osuTrainer.Views
         private void WorkerOnDoWork(object sender, DoWorkEventArgs doWorkEventArgs)
         {
             const string url = @"https://osu.ppy.sh/feed/ranked/";
-            XmlReader reader = XmlReader.Create(url);
-            SyndicationFeed feed = SyndicationFeed.Load(reader);
-            reader.Close();
+            XmlReader reader = null;
+            SyndicationFeed feed = null;
+            try
+            {
+                reader = XmlReader.Create(url);
+                feed = SyndicationFeed.Load(reader);
+                reader.Close();
+            }
+            catch (Exception)
+            {
+            }
             if (feed != null)
             {
                 _newBeatmaps = feed.Items.Select(item => new FeedItem
