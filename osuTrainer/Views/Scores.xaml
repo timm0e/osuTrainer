@@ -289,7 +289,8 @@ Loaded="Scores_Loaded" Initialized="Scores_Initialized">
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.InputBindings>
-                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding DownloadOdCommand}"/>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding CopyBeatmapIdCommand}"/>
+                <!--<MouseBinding Gesture="LeftDoubleClick" Command="{Binding DownloadOdCommand}"/>-->
             </DataGrid.InputBindings>
         </DataGrid>
     </Grid>
