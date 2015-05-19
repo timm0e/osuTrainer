@@ -281,6 +281,7 @@ Loaded="Scores_Loaded" Initialized="Scores_Initialized">
             <DataGrid.ContextMenu>
                 <ContextMenu Name="ScoresMenu">
                     <MenuItem Header="Open beatmap link" Command="{Binding OpenBeatmapLinkCommand}"/>
+                    <MenuItem Header="Copy Beatmap ID to clipboard" Command="{Binding CopyBeatmapIdCommand}"/>
                     <MenuItem Header="Copy link to clipboard" Command="{Binding CopyLinkCommand}"/>
                     <MenuItem Header="Download" Command="{Binding DownloadCommand}" />
                     <MenuItem Header="Download with osu!direct" Command="{Binding DownloadOdCommand}"/>

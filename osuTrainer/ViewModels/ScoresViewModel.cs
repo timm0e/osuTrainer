@@ -18,6 +18,7 @@ namespace osuTrainer.ViewModels
         private string _userid;
         public ICommand OpenBeatmapLinkCommand { get; set; }
         public ICommand CopyLinkCommand { get; set; }
+        public ICommand CopyBeatmapIdCommand { get; set; }
         public ICommand DownloadCommand { get; set; }
         public ICommand DownloadOdCommand { get; set; }
         public ICommand DownloadBcCommand { get; set; }

@@ -32,6 +32,7 @@ namespace osuTrainer.ViewModels
             UpdateCommand = new UpdateCommand(this);
             OpenBeatmapLinkCommand = new OpenBeatmapLinkCommand(this);
             CopyLinkCommand = new CopyLinkCommand(this);
+            CopyBeatmapIdCommand = new CopyBeatmapIdCommand(this);
             DownloadCommand = new DownloadCommand(this);
             DownloadOdCommand = new DownloadOdCommand(this);
             DownloadBcCommand = new DownloadBcCommand(this);
